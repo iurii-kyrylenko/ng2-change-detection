@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temperature Converter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div ng-controller="temperatureCtrl">
+
+    <h2>Angular 1 - An example with unstable application model -- Multiple $digest iterations</h2>
+
+    <div>
+      <label>ºC </label>
+      <input ng-model="t.c" ng-change="tc()" />
+    </div>
+    
+    <div>
+    <label>ºF </label>
+      <input ng-model="t.f" ng-change="tf()" />
+    </div>
+    
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
