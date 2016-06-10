@@ -1,14 +1,22 @@
 ## Investigation of Angular 2's Change Detection (Dirty Checking)
 
-### Install dependencies:
-  * `npm i`
-### Run dev server:
-  * `npm start`
-  * `http://localhost:8080`
-### Run tests
-  * `npm test`
-### Deploy
-  * `npm run build`
+##### Install dependencies:
+```
+  npm i
+```
+##### Run dev server:
+```
+  npm start
+  http://localhost:8080
+```
+##### Run tests:
+```
+  npm test
+```
+##### Deploy:
+```
+  npm run build
+```
 
 ### References:
   * [https://angular.io/docs/ts/latest/guide/webpack.html]
