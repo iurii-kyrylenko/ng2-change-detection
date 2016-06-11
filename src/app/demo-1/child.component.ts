@@ -4,6 +4,7 @@ import { IItem } from './item';
 @Component({
     selector: 'child',
     template: `
+        <div>{{test()}}</div>
         <div *ngIf="!data">Loading...</div>
         <table class="gridtable">
             <tr *ngIf="data">
@@ -20,20 +21,15 @@ import { IItem } from './item';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponent {
+
+    test() {
+        console.log('CD for child', this.tag);
+        return '';
+    }
+
     @Input() tag: string;
 
-    private _data: IItem[];
-
-    private _counter = 0;
-
-    @Input() get data() {
-        console.log(`getting data (${this.tag}): ${++this._counter}`);
-        return this._data;
-    }
-
-    set data(value) {
-        this._data = value;
-    }
+    @Input() data: IItem[];
 
     mouseMove() {
         console.log(`mouse moving (${this.tag})`);

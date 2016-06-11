@@ -11,7 +11,7 @@ export class DataService {
             {name: 'name-2', age: 19}
         ]).delay(1000);
     }
-/**
+
     getDataPromise(): Promise<IItem[]> {
         return new Promise<IItem[]>(resolve => {
             setTimeout(() => resolve([
@@ -20,5 +20,4 @@ export class DataService {
             ]), 1000);
         });
     }
-**/
 }
