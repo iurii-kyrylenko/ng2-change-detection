@@ -20,6 +20,7 @@
 
 ### References:
   * https://angular.io/docs/ts/latest/guide/webpack.html
+  * http://teropa.info/blog/2015/03/02/change-and-its-detection-in-javascript-frameworks.html
   * http://www.syntaxsuccess.com/viewarticle/change-detection-in-angular-2.0
   * http://blog.jhades.org/how-does-angular-2-change-detection-really-work/
   * http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html
