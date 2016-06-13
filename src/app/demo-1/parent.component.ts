@@ -7,11 +7,9 @@ import { ChildComponent } from './child.component';
     selector: 'parent',
     template: `
         <div class="parent">
-            <div>{{test()}}</div>
             <p>
-                <button id="add-m" (click)="addItemToMutableArray()">+ m</button>
-                <button id="add-i" (click)="addItemToImmutableArray()">+ i</button>
-            </p>
+                <button id="add-m" (click)="addItem()">+ m</button>
+             </p>
             <child [tag]="tag" [data]="data"></child>
         <div>
     `,
@@ -27,14 +25,8 @@ import { ChildComponent } from './child.component';
     `],
     directives: [ChildComponent],
     changeDetection: ChangeDetectionStrategy.Default
-    //changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ParentComponent implements OnInit, DoCheck {
-
-    test() {
-        console.log('CD for parent', this.tag);
-        return '';
-    }
+export class ParentComponent implements OnInit {
 
     @Input() tag: string;
 
@@ -47,22 +39,11 @@ export class ParentComponent implements OnInit, DoCheck {
     ngOnInit() {
         this.dataService.getData().subscribe(data => {
             this.data = data;
-            // console.log(data);
-            // this.cd.markForCheck();
         });
     }
 
-    ngDoCheck() {
-        console.log(`ngDoCheck for parent ${this.tag}`);
-    }
-
-    addItemToMutableArray() {
+    addItem() {
         if (!this.data) return;
-        this.data.push({name: 'mutable', age: 42});
-    }
-
-    addItemToImmutableArray() {
-        if (!this.data) return;
-        this.data = this.data.concat({name: 'immutable', age: 20});
+        this.data.push({name: 'new', age: 42});
     }
 }

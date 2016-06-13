@@ -1,4 +1,4 @@
-import { provide, Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { provide, Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DataService } from './data.service';
 
 @Component({
@@ -10,7 +10,8 @@ import { DataService } from './data.service';
         provide(DataService, {
             useFactory: () => new DataService(20)
         })
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class Demo2Component implements OnInit, OnDestroy {
 
@@ -22,11 +23,7 @@ export class Demo2Component implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit() {
-        this.cd.detach();
         this.timer = setInterval(() => {
-            this.cd.reattach();
-            this.cd.detectChanges();
-            this.cd.detach();
         }, 1000);
     }
 

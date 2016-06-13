@@ -11,7 +11,6 @@ export class Demo3Component {
     counter = 42;
 
     getCounter() {
-        //return this.counter;
         return this.counter++;
     }
 }

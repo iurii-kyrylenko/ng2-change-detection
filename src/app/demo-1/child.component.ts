@@ -3,9 +3,10 @@ import { IItem } from './item';
 
 @Component({
     selector: 'child',
+
     template: `
-        <div>{{test()}}</div>
         <div *ngIf="!data">Loading...</div>
+
         <table class="gridtable">
             <tr *ngIf="data">
                 <th>Name</th>
@@ -17,15 +18,10 @@ import { IItem } from './item';
             </tr>
         </table>
     `,
-    //changeDetection: ChangeDetectionStrategy.Default
-    changeDetection: ChangeDetectionStrategy.OnPush
+
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class ChildComponent {
-
-    test() {
-        console.log('CD for child', this.tag);
-        return '';
-    }
 
     @Input() tag: string;
 

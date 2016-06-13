@@ -13,7 +13,7 @@ class MockDataService {
 }
 
 describe('Parent Component', () => {
-    it('should not update child when using mutable', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+    it('should update child', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
         return tcb
             .overrideProviders(ParentComponent,
             [provide(DataService, { useClass: MockDataService })])
@@ -22,21 +22,6 @@ describe('Parent Component', () => {
                 fixture.detectChanges();
                 const compiled = fixture.elementRef.nativeElement;
                 const button = compiled.querySelector('#add-m');
-                button.click();
-                fixture.detectChanges();
-                expect(!!compiled.querySelector('td')).toBe(false);
-            });
-    }));
-
-    it('should update child when using immutable', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-        return tcb
-            .overrideProviders(ParentComponent,
-            [provide(DataService, { useClass: MockDataService })])
-            .createAsync(ParentComponent)
-            .then(fixture => {
-                fixture.detectChanges();
-                const compiled = fixture.elementRef.nativeElement;
-                const button = compiled.querySelector('#add-i');
                 button.click();
                 fixture.detectChanges();
                 expect(!!compiled.querySelector('td')).toBe(true);
