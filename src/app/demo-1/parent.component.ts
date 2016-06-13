@@ -26,8 +26,8 @@ import { ChildComponent } from './child.component';
         }
     `],
     directives: [ChildComponent],
-    //changeDetection: ChangeDetectionStrategy.Default
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
+    //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ParentComponent implements OnInit, DoCheck {
 
@@ -45,17 +45,10 @@ export class ParentComponent implements OnInit, DoCheck {
         private cd: ChangeDetectorRef) {}
 
     ngOnInit() {
-        // this.dataService.getData().subscribe(data => this.data = data);
-        // this.dataService.getDataPromise().then(data => this.data = data);
-        // this.dataService.getData().subscribe(data => {
-        //     this.data = data;
-        //     console.log(data);
-        //     this.cd.markForCheck();
-        // });
-        this.dataService.getDataPromise().then(data => {
+        this.dataService.getData().subscribe(data => {
             this.data = data;
-            console.log(data);
-            this.cd.markForCheck();
+            // console.log(data);
+            // this.cd.markForCheck();
         });
     }
 
